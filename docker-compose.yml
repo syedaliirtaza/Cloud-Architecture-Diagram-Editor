@@ -1,6 +1,6 @@
 services:
   db:
-    container_name: db-for-msc-project
+    container_name: db-for-project
     image: postgres:latest
     environment:
       POSTGRES_USER: az313
