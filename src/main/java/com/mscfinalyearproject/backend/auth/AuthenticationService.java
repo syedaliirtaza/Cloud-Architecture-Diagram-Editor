@@ -30,6 +30,7 @@ public class AuthenticationService {
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
+                .id(user.getId())
                 .token(jwtToken)
                 .firstname(user.getFirstname())
                 .lastname(user.getLastname())
@@ -47,6 +48,7 @@ public class AuthenticationService {
         var user = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow();
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
+                .id(user.getId())
                 .token(jwtToken)
                 .firstname(user.getFirstname())
                 .lastname(user.getLastname())

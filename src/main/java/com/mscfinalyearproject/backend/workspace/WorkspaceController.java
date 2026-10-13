@@ -29,9 +29,9 @@ public class WorkspaceController {
             @RequestBody WorkspaceRequest request,
             @AuthenticationPrincipal User user) {
 
-        System.out.println("User: " + user);
-        System.out.println("User ID: " + (user != null ? user.getId() : "null"));
-        System.out.println("Request: " + request);
+//        System.out.println("User: " + user);
+//        System.out.println("User ID: " + (user != null ? user.getId() : "null"));
+//        System.out.println("Request: " + request);
 
         if (user == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();

@@ -71,8 +71,15 @@ public class WorkspaceService {
     }
 
     public WorkspaceResponse getWorkspaceById(Long workspaceId, User user) {
-        Workspace workspace = workspaceRepository.findByIdAndUserId(workspaceId, user.getId())
-                .orElseThrow(() -> new IllegalArgumentException("Workspace not found or you don't have permission to access it"));
+        Workspace workspace = workspaceRepository.findById(workspaceId)
+                .orElseThrow(() -> new IllegalArgumentException("Workspace not found"));
+
+        boolean isOwner = workspace.getUser().getId().equals(user.getId());
+        boolean isCollaborator = collaboratorRepo.existsByWorkspaceIdAndUserId(workspaceId, user.getId());
+
+        if (!isOwner && !isCollaborator) {
+            throw new IllegalArgumentException("Workspace not found or you don't have permission to access it");
+        }
 
         return WorkspaceResponse.fromEntity(workspace);
     }
