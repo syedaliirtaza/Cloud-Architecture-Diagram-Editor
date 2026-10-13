@@ -16,8 +16,6 @@ should not mean choosing between a visual editor and code.
 
 ## Screenshots
 
-Add screenshots to `docs/images/` and update the paths below.
-
   -------------------------------------------------------------------------
   Workspace and canvas                Diagram-as-code editor
   ----------------------------------- -------------------------------------
