@@ -34,18 +34,12 @@ Add screenshots to `docs/images/` and update the paths below.
 
   ------------------------------------------------------------------------------------
 
-```{=html}
-<!-- Optional: add a short GIF showing a diagram being generated and then edited. -->
-```
-```{=html}
-<!-- ![Short product walkthrough](docs/images/walkthrough.gif) -->
-```
 ## What it can do
 
 -   **Draw diagrams visually.** Add and move elements on an open canvas,
     connect them, and use common canvas actions such as zooming and
     panning.
--   **Use a diagram language.** Write a small amount of readable text to
+-   **Use a domain specific language (DSL).** Write a small amount of readable text to
     define nodes, groups, and connections. The editor parses it and
     renders the result on the canvas.
 -   **Generate a first draft with AI.** Describe an architecture in
@@ -120,6 +114,8 @@ The parser runs in the frontend. This keeps the code editor responsive
 and lets the same browser application turn generated or hand-written
 diagram text into a canvas view without asking the backend to parse it.
 
+![DSL Flow](docs/images/dsl-flow.png)
+
 ### Text-to-diagram flow
 
 1.  The user enters a description of the desired architecture.
@@ -133,6 +129,8 @@ diagram text into a canvas view without asking the backend to parse it.
 AI output is a starting point, not a guarantee of a correct design.
 Check service names, connections, security boundaries, and other
 architectural choices before relying on a generated diagram.
+
+![Text-to-diagram Flow](docs/images/text-dsl-flow.png)
 
 ### Collaboration flow
 
@@ -271,7 +269,7 @@ The persistent model is kept deliberately small. It includes:
 The backend uses Spring Data JPA for persistence. Real-time events such
 as cursor movement do not need to be saved as diagram records.
 
-![Database relationships](docs/images/database-model.png)
+![Database relationships](docs/images/data-model.png)
 
 ## Run locally
 
